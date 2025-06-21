@@ -19,6 +19,7 @@ pipeline {
                 dir("${params.resource}") {
                     echo 'Đang chuyển đến thư mục terraform...'
                     sh 'pwd'
+                    sh 'ls -la'
                 }
             }
         }
