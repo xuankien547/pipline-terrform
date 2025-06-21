@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('Go to folder terraform') {
             steps {
-                dir('resource') {
+                dir("${params.resource}") {
                     echo 'Đang chuyển đến thư mục terraform...'
                     sh 'pwd'
                 }
