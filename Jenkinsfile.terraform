@@ -20,6 +20,9 @@ pipeline {
                     echo 'Đang chuyển đến thư mục terraform...'
                 }
             }
+        }
+
+        stage('Confirm go to folder') {
             steps {
                 script {
                     echo 'Done!'
