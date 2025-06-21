@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_ACCESS_KEY_ID = credentials('ACCESS_KEY_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('SECRECT_KEY')
+    }
+
+    parameters {
+        string(name: 'resource', defaultValue: './teraform-code/ec2', description: 'Select the AWS resource to manage')
+    }
+    options {
+        timeout(time: 10, unit: 'MINUTES')
+    }
+
+    stages {
+        stage('Go to folder terraform') {
+            steps {
+                dir('resource') {
+                    echo 'Đang chuyển đến thư mục terraform...'
+                }
+            }
+            steps {
+                script {
+                    echo 'Done!'
+                }
+            }
+        }
+    }
+}
