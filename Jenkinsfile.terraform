@@ -18,6 +18,7 @@ pipeline {
             steps {
                 dir('resource') {
                     echo 'Đang chuyển đến thư mục terraform...'
+                    sh 'pwd'
                 }
             }
         }
