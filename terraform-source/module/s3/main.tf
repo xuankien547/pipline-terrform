@@ -9,8 +9,4 @@ resource "aws_s3_bucket" "s3_bucket" {
         },
         var.tags
     )
-    
-    lifecycle {
-        prevent_destroy = var.prevent_destroy
-    }
 }

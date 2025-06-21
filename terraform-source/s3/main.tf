@@ -5,5 +5,4 @@ module "s3" {
     acl = var.acl
     environment = var.environment
     tags = var.tags
-    prevent_destroy = var.prevent_destroy
 }
