@@ -7,8 +7,9 @@ pipeline {
     }
 
     parameters {
-        string(name: 'resource', defaultValue: './teraform-source/s3', description: 'Select the AWS resource to manage')
+        string(name: 'resource', defaultValue: './terraform-source/s3', description: 'Select the AWS resource to manage')
     }
+
     options {
         timeout(time: 10, unit: 'MINUTES')
     }
@@ -25,13 +26,13 @@ pipeline {
         }
 
         stage('Process Terraform') {
-            dir("${params.resource}") {
-                steps {
+            steps {
+                dir("${params.resource}") {
                     script {
-                        echo 'Done!'
+                        echo 'Chạy Terraform...'
                         sh 'terraform init'
                         sh 'terraform plan'
-                        sh 'terraform apply'
+                        sh 'terraform apply -auto-approve'
                     }
                 }
             }
