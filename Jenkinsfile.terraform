@@ -15,12 +15,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
-            steps {
-                echo 'Đang kiểm tra mã nguồn từ kho lưu trữ...'
-                checkout scm
-            }
-        }
         stage('Go to folder terraform') {
             steps {
                 dir("${params.resource}") {
