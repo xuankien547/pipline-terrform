@@ -25,12 +25,14 @@ pipeline {
         }
 
         stage('Process Terraform') {
-            steps {
-                script {
-                    echo 'Done!'
-                    sh 'terraform init'
-                    sh 'terraform plan'
-                    sh 'terraform apply'
+            dir("${params.resource}") {
+                steps {
+                    script {
+                        echo 'Done!'
+                        sh 'terraform init'
+                        sh 'terraform plan'
+                        sh 'terraform apply'
+                    }
                 }
             }
         }
